@@ -28,6 +28,30 @@ Before you begin, ensure you have the following installed on your machine:
 - pip (Python package installer)
 - virtualenv (optional, for creating a virtual environment)
 
+## Model Arch
+Multimodal Model
+  ├── model1 (DistilBERT for Sequence Classification)
+  │    ├── Embeddings (Word + Position)
+  │    ├── Transformer (6 layers of attention + FFN)
+  │    ├── Pre-Classifier (Linear)
+  │    ├── Classifier (Linear with 18 classes)
+  │    └── Dropout (p=0.2)
+  │
+  ├── model2 (DistilBERT for Sequence Classification)
+  │    ├── Similar structure to model1
+  │
+  ├── model3 (T2T-ViT for Vision + Sequence)
+  │    ├── Tokens to Token (T2T)
+  │    ├── Attention Blocks (14 blocks)
+  │    ├── Head (Linear output for vision)
+  │    ├── FC (Linear output for 18 classes)
+  │
+  ├── Final Fully Connected Layers (fc1, fc2, fc3)
+  │    ├── fc1 (Linear, 18 → 18)
+  │    ├── fc2 (Linear, 18 → 18)
+  │    └── fc3 (Linear, 12 → 18)
+
+
 ## Running the Backend
 
 1. **Clone the repository:**
